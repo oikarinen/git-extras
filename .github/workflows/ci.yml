@@ -55,9 +55,9 @@ jobs:
       - name: spell check
         run: |
           cd tests
-          git grep --cached -l '' | \
+          git grep --cached -l '' .. | \
             grep -v -e 'History\.md' -e 'AUTHORS' -e 'man/.*\.1' -e 'man/.*\.html' | \
-            xargs poetry run codespell --ignore-words=.github/.ignore_words
+            xargs poetry run codespell --ignore-words=../.github/.ignore_words
 
   test:
     runs-on: ubuntu-latest
